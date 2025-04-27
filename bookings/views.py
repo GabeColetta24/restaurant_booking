@@ -13,7 +13,7 @@ def make_booking(request):
         form = BookingForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("Thank you! Your booking has been submitted.")
+            return render(request, 'bookings/booking_success.html')
     else:
         form = BookingForm()
     return render(request, 'bookings/make_booking.html', {'form': form})
