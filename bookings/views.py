@@ -21,3 +21,7 @@ def make_booking(request):
         form = BookingForm()
     # Render the booking form template
     return render(request, 'bookings/make_booking.html', {'form': form})
+
+# View to display the restaurant menu
+def menu(request):
+    return render(request, 'bookings/menu.html')
