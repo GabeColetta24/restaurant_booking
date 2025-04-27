@@ -4,7 +4,7 @@ from .forms import BookingForm
 
 # View to display homepage
 def home(request):
-    return HttpResponse("Welcome to the Restaurant Booking System!")
+    return render(request, 'bookings/home.html')
 
 
 # View to display and handle booking form
