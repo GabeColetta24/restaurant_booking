@@ -14,7 +14,7 @@
         <a href="/menu/">View Menu</a>
     </nav>
     <hr>
-    
+
     <h1>Book a Table</h1>
 
     <form method="POST">
@@ -22,6 +22,18 @@
         {{ form.as_p }}
         <button type="submit">Submit Booking</button>
     </form>
+
+    <!-- Footer Section -->
+<footer style="text-align: center; margin-top: 20px;">
+    <!-- Span where the current year will be inserted -->
+    &copy; <span id="year"></span> Restaurant Booking System
+  </footer>
+  
+  <!-- JavaScript to insert the current year dynamically -->
+  <script>
+    // Get the span element by ID and set its text content to the current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>  
 
 </body>
 </html>
