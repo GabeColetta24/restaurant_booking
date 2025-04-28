@@ -76,10 +76,24 @@ WSGI_APPLICATION = 'restaurant_booking.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(default='postgres://localhost')
-}
-
+if os.environ.get('DATABASE_URL'):
+    # Running on Heroku
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+    }
+else:
+    # Running locally
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'restaurant_booking_db',
+            'USER': 'restaurant_user',
+            'PASSWORD': 'Gabe1010',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+    
 
 
 
