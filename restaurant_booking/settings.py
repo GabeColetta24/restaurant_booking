@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-8-mff+4*i_y=n-i0#3b*e+ae97&yq09f=l!vp4f47_@_$57$2a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['gabes-restaurant-booking.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
