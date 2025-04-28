@@ -105,3 +105,30 @@ User Stories were addressed and implemented progressively during the development
 
 To support Agile project management, GitHub Issues were created for major tasks such as setting up the Django project, creating the booking form, preventing double bookings, adding styling, and preparing for deployment.  
 Each Issue was created, worked on, and then closed once completed to demonstrate an iterative development process.
+
+## Database Design and Models
+
+This project uses a PostgreSQL relational database managed through Django's ORM (Object-Relational Mapping).
+
+### Booking Model:
+
+The `Booking` model stores information about restaurant bookings made by customers.  
+It includes the following fields:
+
+- `first_name` (CharField) — Customer's first name.
+- `last_name` (CharField) — Customer's last name.
+- `email` (EmailField) — Customer's email address.
+- `phone` (CharField) — Customer's phone number.
+- `booking_date` (DateField) — The date the customer wants to book.
+- `booking_time` (TimeField) — The time the customer wants to book.
+- `number_of_guests` (IntegerField) — Number of guests for the booking.
+- `created_at` (DateTimeField) — Auto-generated timestamp when the booking was created.
+
+The Booking model supports the main functionality of the project by enabling users to create, store, and manage reservations.
+
+### Entity-Relationship Diagram (ERD):
+
+This project has a simple data structure with one main entity:
+- **Booking** (single table)
+
+There are no complex relationships (such as foreign keys) in this project.
