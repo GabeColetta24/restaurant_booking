@@ -4,10 +4,12 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     padding: 20px;
+    text-align: center;
 }
 
 h1, h2 {
     color: #333;
+    text-align: center;
 }
 
 form {
@@ -38,11 +40,12 @@ a {
 /* Navigation Bar Styling */
 nav {
     margin-bottom: 20px;
+    text-align: center;
 }
 
 nav a {
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 15px;
     color: #4CAF50;
     font-weight: bold;
 }
