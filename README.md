@@ -30,3 +30,36 @@ The system aims to improve the restaurant's booking efficiency and enhance custo
 - psycopg2-binary (PostgreSQL adapter)
 - Git and GitHub (version control)
 - Heroku (cloud deployment)
+
+## Installation
+
+Follow these steps to run the project locally:
+
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/GabeColetta24/restaurant_booking.git
+
+2. **Navigate to the project folder**:
+   cd restaurant_booking
+
+3. **Create and activate a virtual environment**:
+   python3 -m venv venv
+   source venv/bin/activate
+
+4. **Install the required dependencies**:
+   pip install -r requirements.txt
+
+5. **Configure the database**:
+   Ensure PostgreSQL is installed and running locally.
+   Create a database named restaurant_booking_db
+
+6. **Apply database migrations**:
+   python manage.py migrate
+
+7. **Run the development server**:
+   python manage.py runserver
+
+8. **Open the app in your browser**:
+   http://127.0.0.1:8000/
+   
+
