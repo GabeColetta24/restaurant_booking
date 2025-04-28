@@ -63,3 +63,16 @@ Follow these steps to run the project locally:
    http://127.0.0.1:8000/
    
 
+## How to Use
+
+1. Visit the homepage where you will see a welcome message and navigation links.
+2. To make a booking:
+   - Click on the **Book a Table** link in the navigation bar.
+   - Fill in your details, select a date, time, and number of guests.
+   - Submit the booking form.
+   - If the booking is successful, you will be shown a success message.
+   - If there is already a booking at the chosen time, you will be asked to pick a different time.
+3. To view the restaurant menu:
+   - Click on the **Menu** link in the navigation bar to see the list of dishes available.
+4. Admin users can log in to the Django admin panel to manage bookings.
+
