@@ -76,3 +76,32 @@ Follow these steps to run the project locally:
    - Click on the **Menu** link in the navigation bar to see the list of dishes available.
 4. Admin users can log in to the Django admin panel to manage bookings.
 
+## Agile Planning and User Stories
+
+This project was planned and developed following Agile principles, using an iterative and incremental approach.
+
+### User Stories:
+
+- **As a customer**, I want to be able to make a booking for a specific date and time so that I can reserve a table at the restaurant.
+- **As a customer**, I want to be informed if a booking time is unavailable so that I can choose another time.
+- **As a customer**, I want to receive confirmation that my booking was successful.
+- **As a customer**, I want to view the restaurant's menu before deciding to book.
+- **As a site owner**, I want to manage bookings through an admin panel so that I can efficiently oversee reservations.
+
+### Planning Process:
+
+The project was broken down into manageable steps:
+- Set up the Django project structure and database.
+- Build the booking form and model.
+- Implement double booking prevention logic.
+- Develop pages for booking, menu, and homepage.
+- Add basic CSS styling and navigation bar.
+- Prepare the project for deployment by configuring settings.
+- Write thorough documentation for the project.
+
+User Stories were addressed and implemented progressively during the development process.
+
+### GitHub Issues
+
+To support Agile project management, GitHub Issues were created for major tasks such as setting up the Django project, creating the booking form, preventing double bookings, adding styling, and preparing for deployment.  
+Each Issue was created, worked on, and then closed once completed to demonstrate an iterative development process.
