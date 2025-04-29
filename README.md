@@ -16,12 +16,14 @@ The system aims to improve the restaurant's booking efficiency and enhance custo
 - Responsive design with custom CSS styling
 - User-friendly navigation bar across pages
 - Form validation and error handling for bookings
+- **Footer**: A dynamic footer was added to all pages using JavaScript to automatically display the current year. This ensures the footer stays up-to-date without requiring manual edits each year.
+
 
 ## Technologies Used
 
 - HTML5
 - CSS3
-- JavaScript (basic form validation and dynamic interactions)
+- JavaScript (dynamic footer, basic form validation and dynamic interactions)
 - Python 3
 - Django 4
 - PostgreSQL (local database)
@@ -132,3 +134,82 @@ This project has a simple data structure with one main entity:
 - **Booking** (single table)
 
 There are no complex relationships (such as foreign keys) in this project.
+
+# Testing
+
+Manual and functional testing was performed throughout the development process to ensure all functionality operated as expected.
+
+## Features Tested
+
+- **Home Page**  
+  - Confirmed the home page loads without errors.  
+  - Verified that the welcome text displays correctly.  
+  - Tested that the navigation bar links work and redirect to the correct pages (Menu, Book).
+  ![Home page with Welcome Message](assets/images/homepage.png)
+
+- **Booking Form**  
+  - Tested form submission with valid data — booking is successfully created and a confirmation page is displayed.  
+  - Tested form submission with missing or invalid fields — appropriate form errors are shown, and booking is not created.  
+  ![Booking Form](assets/images/booking-form.png)
+
+- **Double Booking Prevention**  
+  - Attempted to create two bookings at the same date and time — second attempt correctly blocked with an error message.  
+  - Confirmed that a new booking can be made at a different time without issues.
+  ![Double Booking Message](assets/images/double-booking.png)
+
+
+- **Booking Success Page**  
+  - Confirmed that after a successful booking, the user is redirected to a 'Thank you' page displaying a success message.
+  ![Booking Success Page](assets/images/booking-success.png)
+
+- **Navigation Bar**  
+  - Ensured that navigation links are visible on all pages.  
+  - Verified that all navigation links are functional and correct.
+  ![Navbar](assets/images/navbar.png)
+
+- **Menu Page**  
+  - Confirmed that all menu items are displayed properly.  
+  - Tested page responsiveness across devices (desktop, tablet, mobile).
+  ![Menu Page](assets/images/menu.png)
+
+- **Styling (CSS)**  
+  - Verified that CSS is properly applied on the home page, booking page, menu page, and booking success page.  
+  - Confirmed that text is centered and styling remains consistent across all screen sizes.
+
+- **Admin Panel (Django Admin Dashboard)**  
+  - Verified that bookings appear correctly in the admin panel after submission.  
+  - Checked that all fields (name, email, phone, date, time, number of guests) are correctly saved and visible.
+  ![Admin Panel](assets/images/admin-page.png)
+
+- **Footer**: Verified that the dynamic year appears correctly across all pages.
+  ![Dynamic Footer](assets/images/footer.png)
+
+## Bugs Found and Fixed
+
+- **Double Booking Issue**  
+  - **Problem**: Initially, users were able to book the same date and time multiple times.  
+  - **Solution**: Validation was added in the `make_booking` view to prevent double bookings.
+
+- **Wrong Date Format**
+  - Initially, the booking form used the U.S. date format (MM/DD/YYYY) which caused confusion when booking dates. For example when a booking was made for 01/05/2025, the booking would be made for the 5th January 2025 rather than the 1st May 2025. This was corrected by updating the project settings to use British English (`en-gb`) for `LANGUAGE_CODE` in `settings.py`, ensuring dates are interpreted in the UK format (DD/MM/YYYY).
+  ![Date Format Fix shown in Admin Panel](assets/images/wrong-date-format.png)
+
+- **Static Files Not Loading After Deployment**  
+  - **Problem**: After deployment to Heroku, the site's styling was missing because static files were not properly configured.  
+  - **Solution**: Configured `STATIC_ROOT` in `settings.py`, ran `collectstatic`, and redeployed.
+
+- **Server Error (500) on Booking Submission After Deployment**  
+  - **Problem**: Migration issues prevented bookings from being saved after deployment.  
+  - **Solution**: Applied migrations directly in Heroku to fix the database.
+
+## Testing Process
+
+- All manual testing was performed both locally (during development) and post-deployment on Heroku.
+- The application was tested on different browsers (Chrome, Firefox, Safari) and different device sizes (desktop, tablet, mobile) to ensure responsiveness.
+- The final version was confirmed to be working as intended without any known major issues.
+
+ **All critical features have been manually tested and confirmed to work as expected.**
+
+---
+
+
