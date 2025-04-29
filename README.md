@@ -243,3 +243,10 @@ The project was deployed using [Heroku](https://www.heroku.com/) by following th
 The live deployed site can be accessed here:  
 👉 [https://gabes-restaurant-booking-b9411bb9a465.herokuapp.com/](https://gabes-restaurant-booking-b9411bb9a465.herokuapp.com/)
 
+## Acknowledgements
+
+- Django documentation: [https://docs.djangoproject.com/](https://docs.djangoproject.com/)
+- Heroku documentation: [https://devcenter.heroku.com/](https://devcenter.heroku.com/)
+- GitHub documentation: [https://docs.github.com/](https://docs.github.com/)
+- My mentor for guidance and support throughout the project.
+- Stack Overflow and online developer communities for troubleshooting assistance.
