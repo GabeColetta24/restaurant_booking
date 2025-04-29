@@ -212,4 +212,18 @@ Manual and functional testing was performed throughout the development process t
 
 ---
 
+# Future Enhancements
+
+This version of the project provides a strong foundation of core features, with opportunities for future enhancements to further refine functionality and usability:
+
+- **User Authentication**: Implement user accounts allowing users to view, edit, or cancel their bookings.
+- **Table Management**: Add functionality to assign specific tables for bookings and allow multiple tables to be booked together for larger groups.
+- **Booking Cancellation**: Allow users to cancel their bookings through a dedicated page.
+- **Email Confirmations**: Send an automatic email confirmation after a booking is successfully made.
+- **Improved Admin Panel**: Customize the Django admin panel further to make booking management easier for administrators.
+- **Mobile Responsiveness**: Further refine the responsive design for a better mobile experience.
+- **Date/Time Validation**: Disable booking dates in the past from being selected on the booking form.
+
+These enhancements would provide a richer and more robust user experience.
+
 
