@@ -135,11 +135,11 @@ This project has a simple data structure with one main entity:
 
 There are no complex relationships (such as foreign keys) in this project.
 
-# Testing
+## Testing
 
 Manual and functional testing was performed throughout the development process to ensure all functionality operated as expected.
 
-## Features Tested
+### Features Tested
 
 - **Home Page**  
   - Confirmed the home page loads without errors.  
@@ -184,7 +184,7 @@ Manual and functional testing was performed throughout the development process t
 - **Footer**: Verified that the dynamic year appears correctly across all pages.
   ![Dynamic Footer](assets/images/footer.png)
 
-## Bugs Found and Fixed
+### Bugs Found and Fixed
 
 - **Double Booking Issue**  
   - **Problem**: Initially, users were able to book the same date and time multiple times.  
@@ -202,7 +202,7 @@ Manual and functional testing was performed throughout the development process t
   - **Problem**: Migration issues prevented bookings from being saved after deployment.  
   - **Solution**: Applied migrations directly in Heroku to fix the database.
 
-## Testing Process
+### Testing Process
 
 - All manual testing was performed both locally (during development) and post-deployment on Heroku.
 - The application was tested on different browsers (Chrome, Firefox, Safari) and different device sizes (desktop, tablet, mobile) to ensure responsiveness.
@@ -212,7 +212,7 @@ Manual and functional testing was performed throughout the development process t
 
 ---
 
-# Future Enhancements
+## Future Enhancements
 
 This version of the project provides a strong foundation of core features, with opportunities for future enhancements to further refine functionality and usability:
 
@@ -247,6 +247,5 @@ The live deployed site can be accessed here:
 
 - Django documentation: [https://docs.djangoproject.com/](https://docs.djangoproject.com/)
 - Heroku documentation: [https://devcenter.heroku.com/](https://devcenter.heroku.com/)
-- GitHub documentation: [https://docs.github.com/](https://docs.github.com/)
 - My mentor for guidance and support throughout the project.
 - Stack Overflow and online developer communities for troubleshooting assistance.
