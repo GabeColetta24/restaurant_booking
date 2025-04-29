@@ -226,4 +226,20 @@ This version of the project provides a strong foundation of core features, with 
 
 These enhancements would provide a richer and more robust user experience.
 
+## Deployment
+
+The project was deployed using [Heroku](https://www.heroku.com/) by following these steps:
+
+1. **Set up Heroku account** and created a new application.
+2. **Connected the GitHub repository** to Heroku.
+3. **Configured environment variables** (`SECRET_KEY`, `DEBUG`, and `DATABASE_URL`) in Heroku's Config Vars for security and production settings.
+4. **Installed Gunicorn** as the production WSGI server and added a `Procfile` to specify the web process.
+5. **Installed dj-database-url** and updated the `DATABASES` configuration in `settings.py` to switch between local and Heroku databases automatically.
+6. **Set up static file management** by updating `STATIC_ROOT` and running `collectstatic`.
+7. **Added Heroku Postgres** as the database for storing booking information.
+8. **Deployed** manually via the Heroku dashboard by clicking the **Deploy Branch** button.
+9. After deployment, ran database migrations and created an admin user using the Heroku console.
+
+The live deployed site can be accessed here:  
+👉 [https://gabes-restaurant-booking-b9411bb9a465.herokuapp.com/](https://gabes-restaurant-booking-b9411bb9a465.herokuapp.com/)
 
