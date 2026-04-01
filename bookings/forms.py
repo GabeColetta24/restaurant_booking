@@ -18,7 +18,7 @@ class BookingForm(forms.ModelForm):
         ]
         widgets = {
             # Use a date picker in the browser
-            "booking_date": forms.DateInput(attrs={"type": "date"}),
+            "booking_date": forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
 
             # Use a time picker in the browser
             "booking_time": forms.TimeInput(attrs={"type": "time"}),
