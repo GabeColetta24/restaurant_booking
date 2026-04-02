@@ -2,19 +2,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Page title -->
     <title>Restaurant Booking</title>
+    
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="{% static 'bookings/style.css' %}">
 </head>
 <body>
 
+<!-- Navigation bar -->
 <nav>
+    <!-- Public links -->
     <a href="{% url 'home' %}">Home</a> |
     <a href="{% url 'menu' %}">Menu</a> |
 
     {% if user.is_authenticated %}
+        <!-- Links for logged-in users -->
         <a href="{% url 'make_booking' %}">Book</a> |
         <a href="{% url 'my_bookings' %}">My Bookings</a> |
 
+        <!-- Logout button (POST request for security) -->
         <a
     href="#"
     style="color:#4CAF50; font-weight:bold; text-decoration:none;"
@@ -23,10 +30,12 @@
     Logout
 </a>
 
+<!-- Hidden logout form -->
 <form id="logout-form" action="{% url 'logout' %}" method="post" style="display:none;">
     {% csrf_token %}
 </form>
     {% else %}
+        <!-- Links for guests -->
         <a href="{% url 'login' %}">Login</a> |
         <a href="{% url 'signup' %}">Sign Up</a>
     {% endif %}
@@ -34,12 +43,14 @@
 
 <hr>
 
+<!-- Display Django messages (e.g. success alerts) -->
 {% if messages %}
     {% for message in messages %}
         <p>{{ message }}</p>
     {% endfor %}
 {% endif %}
 
+<!-- Page-specific content goes here -->
 {% block content %}
 {% endblock %}
 

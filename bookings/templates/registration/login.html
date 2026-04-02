@@ -1,13 +1,36 @@
 {% extends "bookings/base.html" %}
 
 {% block content %}
-<h2>Log In</h2>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Log In</button>
-</form>
+<!-- Page heading -->
+<h1>Log In</h1>
 
-<p>Don't have an account? <a href="{% url 'signup' %}">Sign up here</a>.</p>
+<!-- Login form container -->
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+
+        <!-- Username field -->
+        <p>
+            <label for="{{ form.username.id_for_label }}">Username:</label><br>
+            {{ form.username }}
+        </p>
+
+        <!-- Password field -->
+        <p>
+            <label for="{{ form.password.id_for_label }}">Password:</label><br>
+            {{ form.password }}
+        </p>
+
+        <!-- Submit button -->
+        <button type="submit">Log In</button>
+    </form>
+</div>
+
+<!-- Link to signup page -->
+<p>
+    Don't have an account?
+    <a href="{% url 'signup' %}">Sign up here</a>.
+</p>
+
 {% endblock %}

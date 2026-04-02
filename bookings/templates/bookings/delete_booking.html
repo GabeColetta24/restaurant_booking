@@ -1,17 +1,22 @@
 {% extends "bookings/base.html" %}
 
 {% block content %}
+
+<!-- Page heading -->
 <h2>Delete Booking</h2>
 
+<!-- Confirmation message -->
 <p>
     Are you sure you want to delete your booking for
     {{ booking.booking_date }} at {{ booking.booking_time }}?
 </p>
 
+<!-- Delete confirmation form -->
 <form method="post">
     {% csrf_token %}
     <button type="submit">Yes, Delete Booking</button>
 </form>
 
+<!-- Cancel action -->
 <p><a href="{% url 'my_bookings' %}">Cancel</a></p>
 {% endblock %}
