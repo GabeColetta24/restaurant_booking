@@ -139,76 +139,132 @@ There are no complex relationships (such as foreign keys) in this project.
 
 Manual and functional testing was performed throughout the development process to ensure all functionality operated as expected.
 
-### Features Tested
+---
+
+### Manual Testing
+
+| Feature | Action | Expected Result | Actual Result |
+|--------|--------|----------------|---------------|
+| Home Page | Navigate to home page | Page loads with navigation and footer | Works as expected |
+| Menu Page | Open menu page | Menu items display correctly | Works as expected |
+| Signup | Create new account | Account created and redirected to login | Works as expected |
+| Login | Log in with valid credentials | User logged in and redirected | Works as expected |
+| Logout | Click logout | User logged out successfully | Works as expected |
+| Create Booking | Submit booking form | Booking saved and visible in My Bookings | Works as expected |
+| View Bookings | Open My Bookings page | User sees only their bookings | Works as expected |
+| Edit Booking | Update booking | Changes saved correctly | Works as expected |
+| Delete Booking | Delete booking | Booking removed | Works as expected |
+| Validation | Submit invalid form | Errors displayed and submission blocked | Works as expected |
+
+---
+
+### Feature Testing
 
 - **Home Page**  
-  - Confirmed the home page loads without errors.  
-  - Verified that the welcome text displays correctly.  
-  - Tested that the navigation bar links work and redirect to the correct pages (Menu, Book).
-  ![Home page with Welcome Message](assets/images/homepage.png)
+  - Page loads without errors  
+  - Navigation bar links work correctly  
+  ![Home Page](assets/images/home-page.png)
 
 - **Booking Form**  
-  - Tested form submission with valid data — booking is successfully created and a confirmation page is displayed.  
-  - Tested form submission with missing or invalid fields — appropriate form errors are shown, and booking is not created.  
-  ![Booking Form](assets/images/booking-form.png)
+  - Valid bookings are successfully created  
+  - Invalid submissions show appropriate errors  
+  ![Booking Form](assets/images/make-booking.png)
 
 - **Double Booking Prevention**  
-  - Attempted to create two bookings at the same date and time — second attempt correctly blocked with an error message.  
-  - Confirmed that a new booking can be made at a different time without issues.
+  - Duplicate bookings at the same date/time are prevented  
   ![Double Booking Message](assets/images/double-booking.png)
 
+- **My Bookings Page**  
+  - Displays all bookings for the logged-in user  
+  - Allows users to edit or delete bookings  
+  ![My Bookings](assets/images/my-bookings.png)
 
-- **Booking Success Page**  
-  - Confirmed that after a successful booking, the user is redirected to a 'Thank you' page displaying a success message.
-  ![Booking Success Page](assets/images/booking-success.png)
+- **Booking Success Message**  
+  - After a successful booking, the user is redirected to the My Bookings page  
+  - A success message is displayed confirming the booking  
+  ![Booking Success Message](assets/images/booking-successful.png)
+
+- **Edit Booking**  
+  - Booking form is pre-filled and can be updated  
+  ![Edit Booking](assets/images/edit-booking.png)
+
+- **Delete Booking**  
+  - User is asked to confirm before deleting a booking  
+  ![Delete Booking](assets/images/delete-booking.png)
 
 - **Navigation Bar**  
-  - Ensured that navigation links are visible on all pages.  
-  - Verified that all navigation links are functional and correct.
-  ![Navbar](assets/images/navbar.png)
+  - Navigation links are displayed correctly and update based on whether the user is logged in or not  
+  ![Navbar with option to log in or sign up](assets/images/login-navbar.png)
+  ![Navbar for when you are logged in](assets/images/logout-navbar.png)
 
 - **Menu Page**  
-  - Confirmed that all menu items are displayed properly.  
-  - Tested page responsiveness across devices (desktop, tablet, mobile).
-  ![Menu Page](assets/images/menu.png)
+  - Menu items display correctly  
+  ![Menu Page](assets/images/menu-page.png)
 
-- **Styling (CSS)**  
-  - Verified that CSS is properly applied on the home page, booking page, menu page, and booking success page.  
-  - Confirmed that text is centered and styling remains consistent across all screen sizes.
-
-- **Admin Panel (Django Admin Dashboard)**  
-  - Verified that bookings appear correctly in the admin panel after submission.  
-  - Checked that all fields (name, email, phone, date, time, number of guests) are correctly saved and visible.
+- **Admin Panel**  
+  - Bookings are stored correctly and visible in admin  
   ![Admin Panel](assets/images/admin-page.png)
 
-- **Footer**: Verified that the dynamic year appears correctly across all pages.
-  ![Dynamic Footer](assets/images/footer.png)
+- **Footer**  
+  - Dynamic year displays correctly on all pages  
+  ![Footer](assets/images/booking-footer.png)
+
+---
 
 ### Bugs Found and Fixed
 
 - **Double Booking Issue**  
-  - **Problem**: Initially, users were able to book the same date and time multiple times.  
-  - **Solution**: Validation was added in the `make_booking` view to prevent double bookings.
+  - Users were able to create duplicate bookings for the same date/time  
+  - Validation was added to prevent this  
+  
 
-- **Wrong Date Format**
-  - Initially, the booking form used the U.S. date format (MM/DD/YYYY) which caused confusion when booking dates. For example when a booking was made for 01/05/2025, the booking would be made for the 5th January 2025 rather than the 1st May 2025. This was corrected by updating the project settings to use British English (`en-gb`) for `LANGUAGE_CODE` in `settings.py`, ensuring dates are interpreted in the UK format (DD/MM/YYYY).
-  ![Date Format Fix shown in Admin Panel](assets/images/wrong-date-format.png)
+- **Incorrect Date Format**  
+  - Dates were interpreted in U.S. format  
+  - Fixed by setting `LANGUAGE_CODE = 'en-gb'`  
 
-- **Static Files Not Loading After Deployment**  
-  - **Problem**: After deployment to Heroku, the site's styling was missing because static files were not properly configured.  
-  - **Solution**: Configured `STATIC_ROOT` in `settings.py`, ran `collectstatic`, and redeployed.
+- **Static Files Not Loading (Deployment)**  
+  - Styling missing after deployment  
+  - Fixed by configuring `STATIC_ROOT` and running `collectstatic`  
 
-- **Server Error (500) on Booking Submission After Deployment**  
-  - **Problem**: Migration issues prevented bookings from being saved after deployment.  
-  - **Solution**: Applied migrations directly in Heroku to fix the database.
+- **500 Error After Deployment**  
+  - Database migrations were not applied  
+  - Fixed by running migrations on Heroku  
 
-### Testing Process
+---
 
-- All manual testing was performed both locally (during development) and post-deployment on Heroku.
-- The application was tested on different browsers (Chrome, Firefox, Safari) and different device sizes (desktop, tablet, mobile) to ensure responsiveness.
-- The final version was confirmed to be working as intended without any known major issues.
+### Validation Testing
 
- **All critical features have been manually tested and confirmed to work as expected.**
+- Forms prevent submission if required fields are left empty  
+- Invalid date/time formats are rejected  
+- Users cannot create bookings in the past  
+- Duplicate bookings are prevented  
+- Error messages are clearly displayed to the user  
+
+---
+
+### Browser Testing
+
+The application was tested on:
+- Google Chrome  
+- Safari  
+
+All functionality worked as expected across browsers.
+
+---
+
+### Deployment Testing
+
+The application was tested on the deployed Heroku environment.
+
+All functionality matched the local development environment, including:
+- Authentication (signup/login/logout)  
+- Booking creation, editing, and deletion  
+- Navigation and styling  
+- Form validation and error handling  
+
+---
+
+**All major features have been tested and confirmed to work as expected.**
 
 ---
 
