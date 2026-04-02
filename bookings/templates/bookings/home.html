@@ -1,20 +1,9 @@
+{% extends "bookings/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'bookings/style.css' %}">
-</head>
-<body>
-    <!-- Navigation bar for page links -->
-    <nav>
-        <a href="/">Home</a> |
-        <a href="/book/">Book a Table</a> |
-        <a href="/menu/">View Menu</a>
-    </nav>
-    <hr>
-    
-    <h1>Welcome to the Restaurant Booking System!</h1>
+
+{% block content %}
+
+<h1>Welcome to the Restaurant Booking System!</h1>
 
     <!-- Footer Section -->
 <footer style="text-align: center; margin-top: 20px;">
@@ -27,5 +16,5 @@
     // Get the span element by ID and set its text content to the current year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-</body>
-</html>
+
+{% endblock %}

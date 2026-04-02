@@ -1,7 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Restaurant Booking</title>
+    <link rel="stylesheet" href="{% static 'bookings/style.css' %}">
 </head>
 <body>
 
@@ -13,10 +15,17 @@
         <a href="{% url 'make_booking' %}">Book</a> |
         <a href="{% url 'my_bookings' %}">My Bookings</a> |
 
-        <form action="{% url 'logout' %}" method="post" style="display:inline;">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
+        <a
+    href="#"
+    style="color:#4CAF50; font-weight:bold; text-decoration:none;"
+    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+>
+    Logout
+</a>
+
+<form id="logout-form" action="{% url 'logout' %}" method="post" style="display:none;">
+    {% csrf_token %}
+</form>
     {% else %}
         <a href="{% url 'login' %}">Login</a> |
         <a href="{% url 'signup' %}">Sign Up</a>
