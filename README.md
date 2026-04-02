@@ -216,7 +216,7 @@ Manual and functional testing was performed throughout the development process t
 - **Double Booking Issue**  
   - Users were able to create duplicate bookings for the same date/time  
   - Validation was added to prevent this  
-  
+
 
 - **Incorrect Date Format**  
   - Dates were interpreted in U.S. format  
@@ -265,6 +265,26 @@ All functionality matched the local development environment, including:
 ---
 
 **All major features have been tested and confirmed to work as expected.**
+
+---
+
+### Automated Testing
+
+Basic automated tests were created using Django’s built-in testing framework.
+
+The following areas were tested:
+- login is required to access protected booking pages
+- logged-in users can create bookings successfully
+- users cannot edit another user’s booking
+- users cannot delete another user’s booking
+
+All automated tests passed successfully.
+
+Automated tests were run with:
+
+```bash
+python3 manage.py test
+```
 
 ---
 
