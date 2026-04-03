@@ -89,7 +89,6 @@ Several key design decisions were made during development:
 - **Use of Django templates**  
   Template inheritance was used to maintain consistency and reduce repeated code.
 
----
 
 ## Features
 
@@ -126,26 +125,43 @@ Follow these steps to run the project locally:
 1. **Clone the repository**  
    ```bash
    git clone https://github.com/GabeColetta24/restaurant_booking.git
+   ```
 
 2. **Navigate to the project folder**:
+   ```bash
    cd restaurant_booking
+   ```
 
 3. **Create and activate a virtual environment**:
+   ```bash
    python3 -m venv venv
    source venv/bin/activate
+   ```
 
 4. **Install the required dependencies**:
+   ```bash
    pip install -r requirements.txt
+   ```
 
-5. **Configure the database**:
-   Ensure PostgreSQL is installed and running locally.
-   Create a database named restaurant_booking_db
+5. **Set up environment variables**:
+Create the following environment variables for local development:
+
+- SECRET_KEY
+- DB_NAME
+- DB_USER
+- DB_PASSWORD
+- DB_HOST
+- DB_PORT
 
 6. **Apply database migrations**:
+   ```bash
    python manage.py migrate
+   ```
 
 7. **Run the development server**:
+   ```bash
    python manage.py runserver
+   ```
 
 8. **Open the app in your browser**:
    http://127.0.0.1:8000/
