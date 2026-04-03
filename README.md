@@ -10,12 +10,13 @@ The system aims to improve the restaurant's booking efficiency and enhance custo
 
 - Date and time-based table bookings
 - Prevents double bookings for the same time slot
-- Booking success confirmation page
 - Menu page displaying available dishes
 - Admin panel for managing bookings
 - Responsive design with custom CSS styling
 - User-friendly navigation bar across pages
 - Form validation and error handling for bookings
+- User authentication system (signup, login, logout)
+- Users can only view, edit, and delete their own bookings (access control)
 - **Footer**: A dynamic footer was added to all pages using JavaScript to automatically display the current year. This ensures the footer stays up-to-date without requiring manual edits each year.
 
 
@@ -72,7 +73,7 @@ Follow these steps to run the project locally:
    - Click on the **Book a Table** link in the navigation bar.
    - Fill in your details, select a date, time, and number of guests.
    - Submit the booking form.
-   - If the booking is successful, you will be shown a success message.
+   - If the booking is successful, you will be redirected to the My Bookings page where a confirmation message is displayed.
    - If there is already a booking at the chosen time, you will be asked to pick a different time.
 3. To view the restaurant menu:
    - Click on the **Menu** link in the navigation bar to see the list of dishes available.
@@ -125,15 +126,22 @@ It includes the following fields:
 - `booking_time` (TimeField) — The time the customer wants to book.
 - `number_of_guests` (IntegerField) — Number of guests for the booking.
 - `created_at` (DateTimeField) — Auto-generated timestamp when the booking was created.
+- `user` (ForeignKey) — Links the booking to the logged-in user who created it.
 
 The Booking model supports the main functionality of the project by enabling users to create, store, and manage reservations.
 
 ### Entity-Relationship Diagram (ERD):
 
-This project has a simple data structure with one main entity:
-- **Booking** (single table)
+This project has a simple data structure consisting of:
 
-There are no complex relationships (such as foreign keys) in this project.
+- **User** (provided by Django’s authentication system)
+- **Booking**
+
+Each Booking is linked to a User via a ForeignKey relationship.
+
+This relationship ensures that:
+- Each booking belongs to a specific user
+- Users can only access their own bookings
 
 ## Testing
 
@@ -292,7 +300,7 @@ python3 manage.py test
 
 This version of the project provides a strong foundation of core features, with opportunities for future enhancements to further refine functionality and usability:
 
-- **User Authentication**: Implement user accounts allowing users to view, edit, or cancel their bookings.
+- **User Profiles**: Enhance user accounts to include additional profile information.
 - **Table Management**: Add functionality to assign specific tables for bookings and allow multiple tables to be booked together for larger groups.
 - **Booking Cancellation**: Allow users to cancel their bookings through a dedicated page.
 - **Email Confirmations**: Send an automatic email confirmation after a booking is successfully made.
@@ -315,6 +323,7 @@ The project was deployed using [Heroku](https://www.heroku.com/) by following th
 7. **Added Heroku Postgres** as the database for storing booking information.
 8. **Deployed** manually via the Heroku dashboard by clicking the **Deploy Branch** button.
 9. After deployment, ran database migrations and created an admin user using the Heroku console.
+10. Ran `python manage.py migrate` on Heroku to ensure the live database schema matched the application models.
 
 The live deployed site can be accessed here:  
 👉 [https://gabes-restaurant-booking-b9411bb9a465.herokuapp.com/](https://gabes-restaurant-booking-b9411bb9a465.herokuapp.com/)
