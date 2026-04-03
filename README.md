@@ -6,6 +6,91 @@ The Restaurant Booking System is a full-stack web application designed for custo
 It features date and time-based reservations, prevents double bookings, and provides a simple menu display. 
 The system aims to improve the restaurant's booking efficiency and enhance customer satisfaction.
 
+
+## Design
+
+### Design Goals
+
+The application was designed with simplicity and usability as the primary focus. The goal was to create an intuitive booking system that allows users to quickly make, view, and manage reservations with minimal friction.
+
+Key design objectives:
+- Provide a clear and simple navigation structure
+- Minimise the number of steps required to make a booking
+- Ensure users can easily manage their own bookings
+- Maintain a consistent layout across all pages
+
+---
+
+### User Experience (UX)
+
+The user journey was designed around a straightforward flow:
+
+1. User visits the homepage
+2. User signs up or logs in
+3. User creates a booking
+4. User is redirected to **My Bookings**
+5. User can edit or delete their booking
+
+To improve usability:
+- A consistent navigation bar is present on all pages
+- Feedback messages are displayed after actions (e.g. booking created, updated, or deleted)
+- Forms provide validation and error messages to guide the user
+
+---
+
+### Layout and Structure
+
+The application uses a **base template (`base.html`)** to ensure consistency across all pages.
+
+Common elements include:
+- Navigation bar (changes based on authentication state)
+- Footer with dynamic year
+- Message display area for user feedback
+
+This approach follows Django best practices and reduces code duplication.
+
+---
+
+### Wireframes
+
+Initial planning involved simple low-fidelity wireframes to map out the structure of key pages.
+
+#### Home Page
+- Navigation bar at the top
+- Welcome message
+- Links to key pages (Menu, Book)
+
+#### Booking Page
+- Form fields for user details
+- Date and time selection
+- Submit button
+
+#### My Bookings Page
+- List of bookings for the logged-in user
+- Options to edit or delete each booking
+
+These wireframes were used as a guide during development to ensure a logical layout and smooth user flow.
+
+---
+
+### Design Decisions
+
+Several key design decisions were made during development:
+
+- **Authentication required for bookings**  
+  Users must be logged in to create and manage bookings. This ensures data security and enables access control.
+
+- **User-specific data access**  
+  Each booking is linked to a user, preventing users from accessing or modifying other users’ data.
+
+- **Redirect after booking**  
+  Instead of using a separate success page, users are redirected to **My Bookings**, where they can immediately see and manage their booking.
+
+- **Use of Django templates**  
+  Template inheritance was used to maintain consistency and reduce repeated code.
+
+---
+
 ## Features
 
 - Date and time-based table bookings
